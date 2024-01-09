@@ -22,7 +22,7 @@ function game() {
             playerScore++;
         }
 
-        console.log("Your score is: " + playerScore + "The COMPUTERS score is: " + computerScore)
+        console.log("Your score is: " + playerScore + "The COMPUTERS score is: " + computerScore);
     }
 }
 
