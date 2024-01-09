@@ -1,44 +1,56 @@
+let computerScore = 0;
+let playerScore = 0;
 game();
 
-function game() {
+function game() {   
     for (let i = 0; i <= 5;) {
-        let computerScore = 0;
-        let playerScore = 0;
+        
         let computerChoice = getComputerChoice();
         let playerChoice = prompt("Please enter 'Rock', 'Paper', or 'Scissors'.");
 
         playerChoice = playerChoice.toLowerCase();
 
-        console.log("You chose: " + playerChoice);
+        console.log("\nYou chose: " + playerChoice);
         console.log("The COMPUTER chose: " + computerChoice);
 
         result = start(computerChoice, playerChoice);
         
         if (result === "draw"){
-            setup();
+            game();
         } else if (result === "lose") {
             computerScore++;
         } else {
             playerScore++;
         }
 
-        console.log("Your score is: " + playerScore + "The COMPUTERS score is: " + computerScore);
+        console.log("\nYour score is: " + playerScore + " " + "The COMPUTERS score is: " + computerScore);
+
+        if (playerScore === 3) {
+            console.log("CONGRATULATIONS YOU WON THE GAME");
+            break;
+        } else if (computerScore === 3) {
+            console.log("THE COMPUTER WON >:D");
+            break;
+        }
+
     }
+    console.log("\n\nGAME OVER")
 }
+
 
 function start(computerChoice, playerChoice) {
     
     if (computerChoice === playerChoice) {
         let result = "draw";
-        console.log("WOW ITS A DRAW!  Play Again");
+        console.log("\nWOW ITS A DRAW!  Play Again\n");
         return result;
     } else if ((playerChoice === "rock" && computerChoice === "paper") || (playerChoice === "scissors" && computerChoice === "rock") || (playerChoice === "paper" && computerChoice === "scissors")) {
         let result = "lose";
-        console.log("YOU LOSE HAHAHAHAHAHAHAHA WHAT A DUMMY");
+        console.log("\nYOU LOSE HAHAHAHAHAHAHAHA WHAT A DUMMY\n");
         return result;
     } else {
         let result = "win";
-        console.log("CONGRATULATIONS YOU ARE THE WINNER WINNER CHICKEN DINNER");
+        console.log("\nCONGRATULATIONS YOU ARE THE WINNER WINNER CHICKEN DINNER\n");
         return result;
     }
 }
