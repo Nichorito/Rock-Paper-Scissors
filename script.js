@@ -8,24 +8,35 @@ let rockBtn = document.querySelector('#rock');
 let paperBtn = document.querySelector('#paper');
 let scissorsBtn = document.querySelector('#scissors');
 
+//Stores the html sections that will be used to display choices and results
+let playerChoiceHTML = document.querySelector('#playerChoice');
+let computerChoiceHTML = document.querySelector('#computerChoice');
+let resultHTML = document.querySelector('#result'); 
 
-//Runs a function that plays a round when the rock button is clicked
+
+//Runs a function that plays a round when the rock button is clicked, also sets
+//the HTML content to a rock emoji
 rockBtn.onclick = () => {
-    playerChoice = 'rock';    
+    playerChoice = 'rock';
+    playerChoiceHTML.textContent = '✊';    
     result = start(playerChoice);
     score(result);
 };
 
-//Runs a function that plays a round when the paper button is clicked
+//Runs a function that plays a round when the paper button is clicked, also sets
+//the HTML content to a paper emoji
 paperBtn.onclick = () => {
     playerChoice = 'paper';
+    playerChoiceHTML.textContent = '✋';
     result = start(playerChoice);
     score(result);
 }
 
-//Runs a function that plays a round when the scissors button is clicked    
+//Runs a function that plays a round when the scissors button is clicked, also sets
+//the HTML content to a scissor emoji    
 scissorsBtn.onclick = () => {
     playerChoice = 'scissors';
+    playerChoiceHTML.textContent = '✌️';
     result = start(playerChoice);
     score(result);
 }
@@ -33,33 +44,56 @@ scissorsBtn.onclick = () => {
 
 function score(result) {
 
+    //store result html display in a variable
+    let resultHTML = document.querySelector('#result');
+
+    //Store score counters as variables for display
+    playerScoreHTML = document.querySelector('#playerScore');
+    computerScoreHTML = document.querySelector('#computerScore')
+
+    //Increments player score and changes display
     if (result === "win"){
         playerScore++;
+        playerScoreHTML.textContent = playerScore;
     } 
+
+    //Increments the computers score and changes display
     else if (result === "lose") {
         computerScore++;
+        computerScoreHTML.textContent = computerScore;
     }
 
-    console.log("\nYour score is: " + playerScore + "\n" + 
-                "The COMPUTERS score is: " + computerScore);
-
-    if (playerScore === 3) {
-        console.log("CONGRATULATIONS YOU WON THE GAME");
-    } else if (computerScore === 3) {
-        console.log("THE COMPUTER WON >:D");
+    if (playerScore === 5) {
+        resultHTML.textContent = "CONGRATULATIONS YOU WON THE GAME";
+        playerScore = 0;
+        computerScore = 0;
+        playerScoreHTML.textContent = playerScore;
+        computerScoreHTML.textContent = computerScore;
+    } 
+    else if (computerScore === 5) {
+        resultHTML.textContent = "THE COMPUTER WON >:D";
+        playerScore = 0;
+        computerScore = 0;
+        playerScoreHTML.textContent = playerScore;
+        computerScoreHTML.textContent = computerScore;
     }
 }
     
 function start(playerChoice) {
+
+    //store result html display in a variable
+    let resultHTML = document.querySelector('#result');
     
     let computerChoice = getComputerChoice();
-
-    console.log("\nYou chose: " + playerChoice);
-    console.log("The COMPUTER chose: " + computerChoice);
+    
+    //Sets the computer choice HTML to the respective emoji
+    if (computerChoice === "rock") computerChoiceHTML.textContent = '✊';
+    else if (computerChoice === "paper") computerChoiceHTML.textContent = '✋';
+    else computerChoiceHTML.textContent = '✌️';
 
     if (computerChoice === playerChoice) {
         let result = "draw";
-        console.log("\nWOW ITS A DRAW!  Play Again\n");
+        resultHTML.textContent = 'DRAW!'
         return result;
 
     } else if ((playerChoice === "rock" && computerChoice === "paper") || 
@@ -67,13 +101,13 @@ function start(playerChoice) {
                (playerChoice === "paper" && computerChoice === "scissors")) {
 
         let result = "lose";
-        console.log("\nYOU LOSE HAHAHAHAHAHAHAHA WHAT A DUMMY\n");
+        resultHTML.textContent = 'YOU LOST!'
         return result;
 
     } else {
 
         let result = "win";
-        console.log("\nCONGRATULATIONS YOU ARE THE WINNER WINNER CHICKEN DINNER\n");
+        resultHTML.textContent = 'YOU WON!'
         return result;
         
     }
