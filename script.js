@@ -23,7 +23,8 @@ function game() {
             playerScore++;
         }
 
-        console.log("\nYour score is: " + playerScore + " " + "The COMPUTERS score is: " + computerScore);
+        console.log("\nYour score is: " + playerScore + "\n" + 
+                    "The COMPUTERS score is: " + computerScore);
 
         if (playerScore === 3) {
             console.log("CONGRATULATIONS YOU WON THE GAME");
@@ -44,14 +45,21 @@ function start(computerChoice, playerChoice) {
         let result = "draw";
         console.log("\nWOW ITS A DRAW!  Play Again\n");
         return result;
-    } else if ((playerChoice === "rock" && computerChoice === "paper") || (playerChoice === "scissors" && computerChoice === "rock") || (playerChoice === "paper" && computerChoice === "scissors")) {
+
+    } else if ((playerChoice === "rock" && computerChoice === "paper") || 
+               (playerChoice === "scissors" && computerChoice === "rock") ||
+               (playerChoice === "paper" && computerChoice === "scissors")) {
+
         let result = "lose";
         console.log("\nYOU LOSE HAHAHAHAHAHAHAHA WHAT A DUMMY\n");
         return result;
+
     } else {
+
         let result = "win";
         console.log("\nCONGRATULATIONS YOU ARE THE WINNER WINNER CHICKEN DINNER\n");
         return result;
+        
     }
 }
 
