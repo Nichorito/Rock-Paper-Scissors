@@ -4,12 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="script.js" defer></script>
+    <link rel="stylesheet" href="style.css">
     <title>Rock Paper Scissors!</title>
 </head>
 <body>
-    <button id="rock">Rock</button>
-    <button id="paper">Paper</button>
-    <button id="scissors">Scissors</button>
+    <div id="headerContainer">
+        <h1>ROCK <span> • </span>PAPER <span> • </span> SCISSORS</h1>
+        <p id="credits">By: Nicholas Sheppard</p>
+    </div>
+
+    <div id="chooseWeapon">
+        <p id="weaponPrompt">Choose Your Weapon</p>
+        <div id="buttonContainer">
+            <button class="btn" id="rock">✊</button>
+            <button class="btn" id="paper">✋</button>
+            <button class="btn" id="scissors">✌️</button>
+        </div>
+    </div>
     
 </body>
 </html>
