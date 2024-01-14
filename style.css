@@ -66,3 +66,28 @@ span {
     transform: scale(1.125);
 }
 
+#resultsContainer {
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 100px;
+    color: lightyellow;
+    font-family: sans-serif;
+    font-size: 20px;
+}
+
+.section {
+    width: 33%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+#playerChoice {
+    height: 150px;
+    aspect-ratio: 1/1;
+}
+
+#computerChoice {
+    height: 150px;
+    aspect-ratio: 1/1;
+}

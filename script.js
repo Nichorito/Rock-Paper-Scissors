@@ -39,7 +39,7 @@ function score(result) {
     else if (result === "lose") {
         computerScore++;
     }
-    
+
     console.log("\nYour score is: " + playerScore + "\n" + 
                 "The COMPUTERS score is: " + computerScore);
 
@@ -49,8 +49,6 @@ function score(result) {
         console.log("THE COMPUTER WON >:D");
     }
 }
-
-
     
 function start(playerChoice) {
     
@@ -80,7 +78,6 @@ function start(playerChoice) {
         
     }
 }
-
 
 function getComputerChoice() {
     let options = ["rock", "paper", "scissors"];
